@@ -16,9 +16,11 @@
 #include <sbi_utils/sys/clint.h>
 #include "platform.h"
 
-#define UART_DEFAULT_BAUDRATE       115200
+#include <generated/autoconf.h>
+
 #define UART_CLK                    50000000
-#define UART_ADDR 0x91403000UL
+#define UART_DEFAULT_BAUDRATE       (CONFIG_RTT_CONSOLE_BAUD)
+#define UART_ADDR 					(CONFIG_OPENSBI_CONSOLE_UART_REG_ADDR)
 
 static size_t plic_base_addr;
 static size_t clint_base_addr;
